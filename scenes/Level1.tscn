@@ -1,43 +1,46 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://kenney/naturekit/ground_grass.glb" type="PackedScene" id=1]
 [ext_resource path="res://kenney/naturekit/tree_pineTallB.glb" type="PackedScene" id=2]
 [ext_resource path="res://kenney/naturekit/tree_pineTallA.glb" type="PackedScene" id=3]
 [ext_resource path="res://kenney/characters/steve.glb" type="PackedScene" id=4]
 [ext_resource path="res://kenney/characters/steve.gdns" type="Script" id=5]
+[ext_resource path="res://scripts/MainCamera.gdns" type="Script" id=6]
 
 [node name="Level1" type="Spatial"]
 
-[node name="floor" type="Spatial" parent="."]
+[node name="Floor" type="Spatial" parent="."]
 
-[node name="ground_grass" parent="floor" instance=ExtResource( 1 )]
+[node name="ground_grass" parent="Floor" instance=ExtResource( 1 )]
 
-[node name="ground_grass2" parent="floor" instance=ExtResource( 1 )]
+[node name="ground_grass2" parent="Floor" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 )
 
-[node name="ground_grass3" parent="floor" instance=ExtResource( 1 )]
+[node name="ground_grass3" parent="Floor" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
 
-[node name="ground_grass4" parent="floor" instance=ExtResource( 1 )]
+[node name="ground_grass4" parent="Floor" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
 
-[node name="ground_grass5" parent="floor" instance=ExtResource( 1 )]
+[node name="ground_grass5" parent="Floor" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
 
-[node name="ground_grass6" parent="floor" instance=ExtResource( 1 )]
+[node name="ground_grass6" parent="Floor" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1 )
 
-[node name="ground_grass7" parent="floor" instance=ExtResource( 1 )]
+[node name="ground_grass7" parent="Floor" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1 )
 
-[node name="ground_grass8" parent="floor" instance=ExtResource( 1 )]
+[node name="ground_grass8" parent="Floor" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1 )
 
-[node name="ground_grass9" parent="floor" instance=ExtResource( 1 )]
+[node name="ground_grass9" parent="Floor" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1 )
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.958696, 0.284434, 0, -0.284434, 0.958696, 0, 0.5, 2 )
+[node name="MainCamera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 2.5, 3 )
+script = ExtResource( 6 )
+player = NodePath("../Player")
 
 [node name="tree_pineTallB" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, -1 )
@@ -45,6 +48,6 @@ transform = Transform( 1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, -1 )
 [node name="tree_pineTallA" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
 
-[node name="steve" parent="." instance=ExtResource( 4 )]
+[node name="Player" parent="." instance=ExtResource( 4 )]
 transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0 )
 script = ExtResource( 5 )

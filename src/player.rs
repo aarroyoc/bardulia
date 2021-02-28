@@ -1,6 +1,9 @@
 use gdnative::prelude::*;
 use gdnative::api::AnimationPlayer;
 
+const PLAYER_SPEED: f32 = 4.0;
+const ROTATE_SPEED: f32 = 3.0;
+
 #[derive(NativeClass)]
 #[inherit(Spatial)]
 pub struct Player {
@@ -38,18 +41,18 @@ impl Player {
             self.animation.play("Run", -1.0, 1.0, false);
             let rot_x = owner.rotation().x;
             let rot_z = owner.rotation().z;
-            let vector = Vector3::new(delta*2.0f32*rot_x.sin(), 0.0, delta*2.0f32*rot_z.cos());
+            let vector = Vector3::new(delta*PLAYER_SPEED*rot_x.sin(), 0.0, delta*PLAYER_SPEED*rot_z.cos());
             owner.translate(vector);
         } else {
             self.animation.play("Idle", -1.0, 1.0, false);
         }
 
         if Input::is_action_pressed(&input, GodotString::from_str("rotate_right")) {
-            owner.rotate_y((delta*-2.0f32).into());
+            owner.rotate_y((delta*ROTATE_SPEED*-1.0).into());
         }
 
         if Input::is_action_pressed(&input, GodotString::from_str("rotate_left")) {
-            owner.rotate_y((delta*2.0f32).into());
+            owner.rotate_y((delta*ROTATE_SPEED).into());
         }
     }
 }
