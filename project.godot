@@ -37,6 +37,10 @@ rotate_right={
  ]
 }
 
+[physics]
+
+3d/physics_engine="Bullet"
+
 [rendering]
 
 quality/filters/msaa=4
