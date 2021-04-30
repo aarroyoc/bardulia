@@ -2,6 +2,7 @@ use gdnative::prelude::*;
 
 mod camera;
 mod lever;
+mod sign;
 mod player;
 
 fn init(handle: InitHandle) {
@@ -9,6 +10,7 @@ fn init(handle: InitHandle) {
 
     handle.add_class::<camera::MainCamera>();
     handle.add_class::<lever::Lever>();
+    handle.add_class::<sign::Sign>();
     handle.add_class::<player::Player>();
 }
 
